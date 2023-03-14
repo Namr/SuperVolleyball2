@@ -114,16 +114,20 @@ void GameServer::handle_connection_accept(
 
 // do game update logic and send to clients
 void GameServer::tick(const boost::system::error_code &e) {
-  //consume an input if there is one
+  // consume an input if there is one
   if (!inputQueue->empty()) {
     input::Input i;
     inputQueue->pop(i);
 
-    // update the game based on input
+    // TODO: update the game based on input
     std::cout << "key: " << i.getKey() << ", isDown: " << i.getDown()
               << std::endl;
+
+  } else {
+    // TODO: handle scene updates when no input happens
   }
 
+  // TODO: send scene to all clients
   // start timer again
   tickTimer->async_wait(
       boost::bind(&GameServer::tick, this, boost::asio::placeholders::error));

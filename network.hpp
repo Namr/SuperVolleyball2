@@ -58,7 +58,7 @@ public:
 
 protected:
   void handle_deserialization(boost::archive::binary_iarchive &data);
-  // TODO: need a vector (map?) of drawables here
+  //TODO: need a pointer to the game scene
 };
 
 /*
@@ -94,4 +94,5 @@ private:
   std::vector<std::shared_ptr<ClientSession>> clients;
   std::shared_ptr<input::InputQueue> inputQueue;
   std::unique_ptr<boost::asio::deadline_timer> tickTimer;
+  //TODO: need a pointer to the game scene
 };
